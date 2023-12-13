@@ -9,7 +9,7 @@ resource "kubernetes_namespace" "example" {
 resource "kubernetes_resource_quota" "pod-limit" {
   metadata {
     name = "pod-limit"
-    namespace = kubernetes_namespace.example.metadata.name
+    namespace = kubernetes_namespace.example.metadata[0].name
   }
   spec {
     hard = {
