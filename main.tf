@@ -7,6 +7,7 @@ resource "kubernetes_namespace" "example" {
 }
 
 resource "kubernetes_resource_quota" "pod-limit" {
+  namespace = kubernetes_namespace.example.metadata.name
   metadata {
     name = "pod-limit"
   }
